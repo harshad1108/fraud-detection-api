@@ -3,7 +3,13 @@ import numpy as np
 from fastapi import FastAPI
 from pydantic import BaseModel
 
-app = FastAPI()
+app = FastAPI(
+    title="Fraud Detection API",
+    docs_url="/docs",
+    redoc_url="/redoc",
+    openapi_url="/openapi.json"
+)
+
 
 model = joblib.load("models/model.pkl")
 scaler = joblib.load("models/scaler.pkl")
